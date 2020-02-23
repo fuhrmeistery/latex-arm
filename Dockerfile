@@ -10,6 +10,6 @@ RUN     apt-get install -y file texlive-full \
                 fig2dev \
                 wget && \
         apt-get --purge remove -y .\*-doc$ && \
-        apt-get clean -y \
-RUN adduser latex
+        apt-get clean -y
+RUN adduser --system latex
 USER latex
