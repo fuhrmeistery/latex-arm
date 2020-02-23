@@ -1,7 +1,8 @@
-FROM debian:stretch
+FROM debian
 LABEL maintainer="yannikfuhrmeister@web.de"
 RUN     apt-get update && \
-        apt-get install -y file texlive-full \
+	apt-get upgrade -y
+RUN     apt-get install -y file texlive-full \
                 python3-pygments \
                 git \
                 make \
@@ -10,3 +11,5 @@ RUN     apt-get update && \
                 wget && \
         apt-get --purge remove -y .\*-doc$ && \
         apt-get clean -y \
+RUN adduser latex
+USER latex
